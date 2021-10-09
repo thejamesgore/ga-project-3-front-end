@@ -1,18 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { useHistory } from 'react-router-dom'
 import { setToken } from '../../lib/auth'
+import { loginUser } from '../../lib/auth'
 
 export default function Login() {
-
-
+const history = useHistory()
+const [data, setData] = useState({
+  formData: {
+    username: '',
+    email: '',
+    password: '',
+  },
+})
 
   const handleSubmit = async (event) => {
     event.preventDefault()
 
     try {
       const res = await loginUser(data.formData)
+      console.log(`response from api is >>>>>>`, res)
       if (res.status === 200) {
         console.log('User login successful')
         setToken(res.data.token)
+        history.push
       }
     } catch (err) {
       console.error('Error registering user', err)
@@ -43,7 +53,7 @@ export default function Login() {
             <input
               placeholder="Username"
               name="username"
-            //   value={data.formData.username}
+              value={data.formData.username}
               onChange={handleInput}
             />
           </div>
@@ -55,7 +65,7 @@ export default function Login() {
             <input
               placeholder="Email"
               name="email"
-            //   value={data.formData.email}
+              value={data.formData.email}
               onChange={handleInput}
             />
           </div>
@@ -68,7 +78,7 @@ export default function Login() {
               placeholder="Password"
               name="password"
               type="password"
-            //   value={data.formData.password}
+              value={data.formData.password}
               onChange={handleInput}
             />
           </div>
