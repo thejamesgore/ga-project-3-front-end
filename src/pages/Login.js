@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
-import { setToken } from '../../lib/auth'
-import { loginUser } from '../../lib/auth'
+import { setToken, loginUser } from '../lib/auth.js'
+
 
 export default function Login() {
 const history = useHistory()

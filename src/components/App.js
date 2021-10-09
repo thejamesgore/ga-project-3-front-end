@@ -1,12 +1,11 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import Home from './Home'
-
+import Home from '../pages/Home.js'
 import Navbar from './Navbar'
-import Register from '../components/auth/Register.js'
-import Login from './auth/Login'
-import Countries from './Countries'
+import Countries from '../pages/Countries.js'
+import Login from '../pages/Login.js'
+import Register from '../pages/Register.js'
 
 const App = () => (
   <BrowserRouter>
