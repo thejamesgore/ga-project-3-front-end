@@ -1,11 +1,11 @@
-import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Home from '../pages/Home.js'
-import Navbar from './Navbar'
-import Countries from '../pages/Countries.js'
-import Login from '../pages/Login.js'
-import Register from '../pages/Register.js'
+import Home from "../pages/Home.js";
+import Navbar from "./Navbar";
+import Countries from "../pages/countryCard";
+import Login from "../pages/Login.js";
+import Register from "../pages/Register.js";
 
 const App = () => (
   <BrowserRouter>
@@ -17,6 +17,6 @@ const App = () => (
       <Route exact path="/login" component={Login} />
     </Switch>
   </BrowserRouter>
-)
+);
 
-export default App
+export default App;
