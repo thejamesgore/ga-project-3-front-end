@@ -1,3 +1,19 @@
+.navbar-container {
+  position: absolute;
+  width: 1700px;
+  height: 100px;
+  left: 0px;
+  top: 0px;
+
+  background: #7ee1e8;
+}
+
+.navbar-items {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
 .title {
   position: absolute;
   width: 516px;
@@ -15,4 +31,26 @@
   text-align: center;
 
   color: #000000;
+}
+
+.links-to-pages {
+  position: absolute;
+  text-align: center;
+  width: 1700px;
+  height: 269px;
+  left: 0px;
+  top: 594px;
+
+  background: #ffe3c9;
+}
+
+.footer-container {
+  position: absolute;
+  text-align: center;
+  width: 1700px;
+  height: 46px;
+  left: 0px;
+  top: 863px;
+
+  background: #c4c4c4;
 }
