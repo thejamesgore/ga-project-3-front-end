@@ -3,7 +3,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Home from "../pages/Home.js";
 import Navbar from "./Navbar";
+
 import CountriesIndex from "../pages/CountriesIndex.js";
+
 import Login from "../pages/Login.js";
 import Register from "../pages/Register.js";
 
