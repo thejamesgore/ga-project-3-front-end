@@ -1,11 +1,16 @@
 .navbar-container {
   position: absolute;
   width: 1700px;
-  height: 100px;
+  height: 30px;
   left: 0px;
   top: 0px;
 
   background: #7ee1e8;
+}
+
+.country-card-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar-items {
