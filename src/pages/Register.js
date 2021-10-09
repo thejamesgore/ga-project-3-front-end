@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { registerUser } from '../../lib/auth.js'
+import { registerUser } from '../lib/auth.js'
 
 export default function Register() {
   const [data, setData] = useState({
