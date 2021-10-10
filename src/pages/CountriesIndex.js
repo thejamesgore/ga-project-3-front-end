@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAllCountries } from "../api/Countries.js";
+import { getAllCountries } from "../lib/api.js";
 import CountriesCard from "../components/CountriesCard.js";
 
 export default function Countries() {
