@@ -1,40 +1,44 @@
 import axios from 'axios'
-const baseUrl = '/api'
+import { useHistory } from 'react-router'
+import { useEffect } from 'react'
 
 // Authorization
 
 export const registerUser = (formData) => {
-    return axios.post(`${baseUrl}/register`, formData)
+  return axios.post(`/api/register`, formData)
 }
 
 export const loginUser = (formData) => {
-    return axios.post(`${baseUrl}/login`, formData)
+  return axios.post(`/api/login`, formData)
 }
 
+export const LogoutUser = () => {
+  const history = useHistory()
+
+  useEffect(() => {
+    removeToken()
+    console.log(`Token removed from local storage`)
+    history.push('/')
+  })
+}
+
+// Token handling
 
 export const isLoggedIn = () => {
   const token = getToken()
   if (!token) {
     return false
   }
-
-  const parts = token.split('.')
-
-  if (parts.length < 3) {
-    return false
-  }
-
-  return JSON.parse(atob(parts[1]))
 }
 
-
-// Token handling
-
 export const getToken = () => {
-    return window.localStorage.getItem('token')
+  return window.localStorage.getItem('token')
 }
 
 export const setToken = (token) => {
-    window.localStorage.setItem('token', token)
+  window.localStorage.setItem('token', token)
 }
 
+export const removeToken = () => {
+  window.localStorage.removeItem('token')
+}
