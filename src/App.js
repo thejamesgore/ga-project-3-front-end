@@ -1,24 +1,48 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+import Navbar from './components/Navbar'
+import { isLoggedIn } from './lib/auth'
 
 import Home from './pages/Home'
-import Navbar from "./components/Navbar";
+import CountriesIndex from './pages/CountriesIndex.js'
+import Register from './pages/Register.js'
+import Login from './pages/Login.js'
+import Logout from './pages/Logout'
+import MembersDashboard from './pages/MembersDashboard.js'
 
-import CountriesIndex from "./pages/CountriesIndex.js";
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-import Login from "./pages/Login.js";
-import Register from "./pages/Register.js";
+  useEffect(() => {
+    if (isLoggedIn()) {
+      setIsAuthenticated(true)
+    }
+  })
 
-const App = () => (
-  <BrowserRouter>
-    <Navbar />
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/countries" component={CountriesIndex} />
-      <Route exact path="/register" component={Register} />
-      <Route exact path="/login" component={Login} />
-    </Switch>
-  </BrowserRouter>
-);
+  return (
+    <BrowserRouter>
+      <Navbar isAuthenticated={isAuthenticated} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/countries" component={CountriesIndex} />
+        <Route exact path="/register" component={Register} />
+        <Route
+          exact
+          path="/login"
+          component={() => <Login callback={() => setIsAuthenticated(true)} />}
+        />
+        <Route
+          exact
+          path="/logout"
+          component={() => (
+            <Logout callback={() => setIsAuthenticated(false)} />
+          )}
+        />
+        <Route exact path="/members" component={MembersDashboard} />
+      </Switch>
+    </BrowserRouter>
+  )
+}
 
-export default App;
+export default App

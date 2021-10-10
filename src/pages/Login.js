@@ -1,17 +1,15 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { setToken, loginUser } from '../lib/auth.js'
 
-
-export default function Login() {
-const history = useHistory()
-const [data, setData] = useState({
-  formData: {
-    username: '',
-    email: '',
-    password: '',
-  },
-})
+export default function Login({ callback }) {
+  const history = useHistory()
+  const [data, setData] = useState({
+    formData: {
+      email: '',
+      password: '',
+    },
+  })
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -19,10 +17,11 @@ const [data, setData] = useState({
     try {
       const res = await loginUser(data.formData)
       console.log(`response from api is >>>>>>`, res)
-      if (res.status === 200) {
+      if (res.status === 202) {
         console.log('User login successful')
         setToken(res.data.token)
-        history.push
+        callback()
+        history.push('/members')
       }
     } catch (err) {
       console.error('Error registering user', err)
@@ -45,19 +44,6 @@ const [data, setData] = useState({
 
       <div>
         <form onSubmit={handleSubmit}>
-          <div>
-            <label>Username</label>
-          </div>
-
-          <div>
-            <input
-              placeholder="Username"
-              name="username"
-              value={data.formData.username}
-              onChange={handleInput}
-            />
-          </div>
-
           <div>
             <label>Email</label>
           </div>
@@ -82,8 +68,6 @@ const [data, setData] = useState({
               onChange={handleInput}
             />
           </div>
-
-
 
           <div>
             <input type="submit" value="Login" />

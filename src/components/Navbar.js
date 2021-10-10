@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({ isAthenticated }) => {
   return (
     <nav>
       <div className="navbar">
@@ -13,17 +13,34 @@ const Navbar = () => {
             <Link to="/countries" className="navbar-items">
               Countries
             </Link>
-            <Link to="/register" className="navbar-items">
-              Register
-            </Link>
-            <Link to="/login" className="navbar-items">
-              Login
-            </Link>
+
+            {/* NAVBAR conditional rendering if user is logged in show
+             members Dashboard & Logout Link else show Register and login */}
+
+            {isAthenticated ? (
+              <>
+                <Link to="/members" className="navbar-items">
+                  Members Dashboard
+                </Link>
+                <Link to="/members" className="navbar-items">
+                  Logout
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/register" className="navbar-items">
+                  Register
+                </Link>
+                <Link to="/login" className="navbar-items">
+                  Login
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
