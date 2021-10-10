@@ -1,10 +1,20 @@
 .navbar-container {
   position: absolute;
   width: 1700px;
-  height: 100px;
+  height: 40px;
   left: 0px;
   top: 0px;
   background: #7ee1e8;
+}
+
+.country-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .navbar-items {
@@ -15,21 +25,22 @@
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   text-align: center;
+  font-size: 25px;
 }
 
 .title {
-  position: absolute;
-  width: 516px;
-  height: 49px;
-  left: 447px;
-  top: 118px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
   line-height: 42px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -49,22 +60,24 @@
 }
 
 .footer-container {
-  position: absolute;
+  -webkit-box-flex: display;
+      -ms-flex: display;
+          flex: display;
+  position: relative;
+  top: 700px;
   text-align: center;
-  width: 1700px;
-  height: 46px;
-  left: 0px;
-  top: 863px;
+  height: 50px;
   background: #c4c4c4;
 }
 
 .countries-card {
-  position: absolute;
-  text-align: center;
-  width: 1700px;
-  height: 269px;
-  left: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
   top: 200px;
+  text-align: center;
+  height: 269px;
   background: #ffe3c9;
 }
 /*# sourceMappingURL=main.css.map */

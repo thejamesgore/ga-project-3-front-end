@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Home from "../pages/Home.js";
-import Navbar from "./Navbar";
+import Home from './pages/Home'
+import Navbar from "./components/Navbar";
 
-import CountriesIndex from "../pages/CountriesIndex.js";
+import CountriesIndex from "./pages/CountriesIndex.js";
 
-import Login from "../pages/Login.js";
-import Register from "../pages/Register.js";
+import Login from "./pages/Login.js";
+import Register from "./pages/Register.js";
 
 const App = () => (
   <BrowserRouter>
