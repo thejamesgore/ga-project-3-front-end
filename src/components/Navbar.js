@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Navbar = ({ isAthenticated }) => {
+const Navbar = ({ isAuthenticated }) => {
   return (
     <nav>
       <div className="navbar">
@@ -17,12 +17,12 @@ const Navbar = ({ isAthenticated }) => {
             {/* NAVBAR conditional rendering if user is logged in show
              members Dashboard & Logout Link else show Register and login */}
 
-            {isAthenticated ? (
+            {isAuthenticated ? (
               <>
                 <Link to="/members" className="navbar-items">
                   Members Dashboard
                 </Link>
-                <Link to="/members" className="navbar-items">
+                <Link to="/logout" className="navbar-items">
                   Logout
                 </Link>
               </>
