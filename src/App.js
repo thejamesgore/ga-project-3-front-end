@@ -6,6 +6,7 @@ import { isLoggedIn } from './lib/auth'
 
 import Home from './pages/Home'
 import CountriesIndex from './pages/CountriesIndex.js'
+import SearchBar from './components/SearchBar.js'
 import Register from './pages/Register.js'
 import Login from './pages/Login.js'
 import Logout from './pages/Logout'
@@ -27,6 +28,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/countries" component={CountriesIndex} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/searchbar" component={SearchBar} />
         <Route
           exact
           path="/login"
