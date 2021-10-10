@@ -1,19 +1,18 @@
-import React, {useState, useEffect} from 'react'
-import  { getAllCountries } from '../api/Countries.js'
+import React, { useState, useEffect } from 'react'
+import { getAllCountries } from '../api/Countries.js'
 import Country from '../components/Country'
 
-
 export default function Countries() {
-const [countries, setCountries] = useState([])
+  const [countries, setCountries] = useState([])
 
-useEffect(()=>{
-getAllCountries().then(function (response){
-setCountries(response.data)
-})
-},[])
+  useEffect(() => {
+    getAllCountries().then(function (response) {
+      setCountries(response.data)
+    })
+  }, [])
 
-console.log(`THIS IS THE DATA >>>>>`, countries)
-   
+  console.log(`THIS IS THE DATA >>>>>`, countries)
+
   return (
     <section>
       <div className="hero-body"></div>
@@ -21,11 +20,9 @@ console.log(`THIS IS THE DATA >>>>>`, countries)
         <p className="title">Countries Page: </p>
       </div>
       {/* countries starts */}
-{countries.map((country)=> (
-  <Country  key={country._id} {...country}/>
-  
-
-))}
+      {countries.map((country) => (
+        <Country key={country._id} {...country} />
+      ))}
 
       {/* countries ends */}
       <footer className="footer">
