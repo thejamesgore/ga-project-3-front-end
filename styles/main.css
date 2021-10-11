@@ -1,9 +1,10 @@
 .navbar-container {
-  position: absolute;
-  width: 1700px;
-  height: 40px;
-  left: 0px;
-  top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 10px;
   background: #7ee1e8;
 }
 
@@ -13,27 +14,18 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.search-bar {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .navbar-items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
-  justify-content: space-evenly;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   text-align: center;
   font-size: 25px;
 }
@@ -44,8 +36,8 @@
   display: flex;
   text-align: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -53,8 +45,8 @@
   line-height: 42px;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
   color: #000000;
 }
@@ -71,8 +63,8 @@
 
 .footer-container {
   -webkit-box-flex: display;
-  -ms-flex: display;
-  flex: display;
+      -ms-flex: display;
+          flex: display;
   position: relative;
   top: 700px;
   text-align: center;
