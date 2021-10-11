@@ -1,9 +1,7 @@
 .navbar-container {
-  position: absolute;
-  width: 1700px;
-  height: 40px;
-  left: 0px;
-  top: 0px;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
 
   background: #7ee1e8;
 }
@@ -11,11 +9,12 @@
 .country-card-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .navbar-items {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   text-align: center;
   font-size: 25px;
 }
