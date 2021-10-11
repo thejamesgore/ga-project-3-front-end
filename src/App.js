@@ -6,11 +6,11 @@ import { isLoggedIn } from './lib/auth'
 
 import Home from './pages/Home'
 import CountriesIndex from './pages/CountriesIndex.js'
-import SearchBar from './components/SearchBar.js'
 import Register from './pages/Register.js'
 import Login from './pages/Login.js'
 import Logout from './pages/Logout'
 import MembersDashboard from './pages/MembersDashboard.js'
+import SearchResults from './pages/SearchResults'
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -26,9 +26,9 @@ const App = () => {
       <Navbar isAuthenticated={isAuthenticated} />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/countries/:id" component={SearchResults} />
         <Route exact path="/countries" component={CountriesIndex} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/searchbar" component={SearchBar} />
         <Route
           exact
           path="/login"
