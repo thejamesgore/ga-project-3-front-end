@@ -45,7 +45,7 @@ export default function MembersHome() {
         {/* LEFT SIDE OF PAGE */}
         <div className="left-side">
           {/* MAP COMPONENET */}
-          <Map props={userCountries} />
+          {/* <Map props={userCountries} /> */}
         </div>
 
         {/* RIGHT SIDE OF PAGE */}
