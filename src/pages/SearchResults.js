@@ -1,7 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { getAllCountries } from '../lib/api'
-import axios from 'axios'
 import { useEffect } from 'react/cjs/react.development'
 
 export default function SearchResults() {
@@ -13,13 +12,13 @@ export default function SearchResults() {
     </div>
   )
 }
-const fetchData = async () => {
-  const countries = getAllCountries()
-}
+// const fetchData = async () => {
+//   const countries = getAllCountries()
+// }
 
-useEffect(() => {
-  fetchData();
-}, []):
+// useEffect(() => {
+//   fetchData()
+// }, [])
 
 // REST OF SEARCH BAR
 
