@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import CreateCountryForm from '../components/CreateCountryForm'
 import VisistedPlaces from '../components/VisistedPlaces'
 import { getAllCountries, getUser } from '../lib/api'
+import Map from '../components/Map.js'
 
 export default function MembersHome() {
   // function that sorts through that data and only adds countries to an array
@@ -43,13 +44,9 @@ export default function MembersHome() {
       <div className="main-members-container">
         {/* LEFT SIDE OF PAGE */}
         <div className="left-side">
-          <h1>THIS IS THE LEFT SIIIIIDE</h1>
-          <h1>THIS IS THE LEFT SIIIIIDE</h1>
-          <h1>THIS IS THE LEFT SIIIIIDE</h1>
-          <h1>THIS IS THE LEFT SIIIIIDE</h1>
+          {/* MAP COMPONENET */}
+          <Map />
         </div>
-
-        {/* MAP COMPONENET */}
 
         {/* RIGHT SIDE OF PAGE */}
 

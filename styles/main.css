@@ -144,4 +144,9 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
+
+.map {
+  height: 300px;
+  position: absolute;
+}
 /*# sourceMappingURL=main.css.map */
