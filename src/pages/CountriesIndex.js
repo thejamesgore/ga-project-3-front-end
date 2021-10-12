@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { getAllCountries } from "../lib/api.js";
-import CountriesCard from "../components/CountriesCard.js";
+import React, { useState, useEffect } from 'react'
+import { getAllCountries } from '../lib/api.js'
+import CountriesCard from '../components/CountriesCard.js'
 
 export default function Countries() {
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState([])
 
   useEffect(() => {
     getAllCountries().then(function (response) {
-      setCountries(response.data);
-    });
-  }, []);
-  console.log(`THIS IS THE DATA >>>>>`, countries);
+      setCountries(response.data)
+    })
+  }, [])
+  console.log(`THIS IS THE DATA >>>>>`, countries)
 
   return (
     <>
@@ -40,5 +40,5 @@ export default function Countries() {
         </footer>
       </div>
     </>
-  );
+  )
 }
