@@ -1,52 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import ReactMapGL, { MapContext } from 'react-map-gl'
-// import { getCoordinates } from '../lib/helpers'
+import { getCoordinates } from '../lib/helpers'
 
-import Geocode from 'react-geocode'
-
-Geocode.setApiKey('AIzaSyBK6SzZbuxMjIHPxdoBk54ag5K23MLTss4')
-Geocode.setLanguage('en')
-Geocode.enableDebug()
-
-export default function Map(props) {
-  const [mapMarkers, setMapMarkers] = useState([])
-
-  const countries = props.props
-  // console.log(`The props are >>>>>>`, countries)
-
-  const getCoordinates = async (location) => {
-    //needs to take an array
-    await Geocode.fromAddress(location).then(
-      (response) => {
-        let coordinates
-        coordinates = response.results[0].geometry.location
-        setMapMarkers(coordinates)
-        // console.log(`the coorinates are`, coordinates)
-        // needs to return an array
-      },
-      (error) => {
-        console.error(error)
-      }
-    )
-  }
-
-  useEffect(() => {
-    // console.log(`I'm logging the countries fromm the map function`, countries)
-
-    if (!countries) {
-      return
-    } else {
-      for (let i = 0; i < countries.length; i++) {
-        // console.log(`The country visited is >>>`, countries[i].name)
-        getCoordinates(countries[i]?.name)
-      }
-    }
-  }, [countries])
-
-  useEffect(() => {
-    console.log(`MAP MARKERS ARE ⭐️`, mapMarkers)
-  }, [mapMarkers])
 
   const coordinates = [
     {
@@ -81,7 +37,11 @@ export default function Map(props) {
       >
         {/* MAP OVER THE MARKERS FUNCTION WITH CO-ORDINATES */}
         {coordinates?.map((coordinates) => (
-          <CustomMarker lat={coordinates.lat} lng={coordinates.lng} />
+          <CustomMarker
+            key={coordinates.lat}
+            lat={coordinates.lat}
+            lng={coordinates.lng}
+          />
         ))}
 
         {/* END OF MAP FUNCTION */}
