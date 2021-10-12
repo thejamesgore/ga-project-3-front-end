@@ -18,7 +18,7 @@ const coordinates = [
     lng: -7.692053599999999,
   },
 ]
-export default function Map() {
+export default function Map(props) {
   const [viewport, setViewport] = useState({
     width: 500,
     height: 300,
@@ -26,6 +26,8 @@ export default function Map() {
     longitude: 17,
     zoom: 1,
   })
+
+  // console.log(`Here are the props`, props)
 
   return (
     <div>
