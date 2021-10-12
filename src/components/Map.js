@@ -3,13 +3,23 @@ import { useState, useEffect } from 'react'
 import ReactMapGL, { MapContext } from 'react-map-gl'
 import { getCoordinates } from '../lib/helpers'
 
-export default function Map() {
+export default function Map(props) {
   const [mapMarkers, setMapMarkers] = useState([{}])
 
+  const countries = props.props
+  // console.log(`The props are >>>>>>`, countries)
+
   useEffect(() => {
-    console.log(`I'm logging form the map function`)
-    getCoordinates('ireland')
-  }, [])
+    console.log(`I'm logging the countries fromm the map function`, countries)
+    if (!countries) {
+      return
+    } else {
+      for (let i = 0; i < countries.length; i++) {
+        console.log(`The country visited is >>>`, countries[i].name)
+        getCoordinates(countries[i]?.name)
+      }
+    }
+  }, [countries])
 
   const coordinates = [
     {

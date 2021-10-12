@@ -31,9 +31,9 @@ export default function MembersHome() {
       (country) => country.createdBy === userId.data._id
     )
 
-    visitedCountries.map(({ name }) => {
-      console.log(`Visisted countries are >>> `, { name })
-    })
+    // visitedCountries.map(({ name }) => {
+    //   // console.log(`Visisted countries are >>> `, { name })
+    // })
     // console.log(`PARSED VISITED COUNTRIES >>> `, parsedVisited)
     setUserCountries(visitedCountries)
   }, [userId])
@@ -45,7 +45,7 @@ export default function MembersHome() {
         {/* LEFT SIDE OF PAGE */}
         <div className="left-side">
           {/* MAP COMPONENET */}
-          <Map />
+          <Map props={userCountries} />
         </div>
 
         {/* RIGHT SIDE OF PAGE */}
