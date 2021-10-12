@@ -4,7 +4,7 @@ import ReactMapGL from 'react-map-gl'
 import { getCoordinates } from '../lib/helpers'
 
 export default function Map() {
-  const [mapMarkers, setMapMarkers] = useState([])
+  const [mapMarkers, setMapMarkers] = useState([{}])
 
   useEffect(() => {
     console.log(`I'm logging form the map function`)
