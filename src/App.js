@@ -29,6 +29,7 @@ const App = () => {
         <Route exact path="/countries/:id" component={SearchResults} />
         <Route exact path="/countries" component={CountriesIndex} />
         <Route exact path="/register" component={Register} />
+
         <Route
           exact
           path="/login"
