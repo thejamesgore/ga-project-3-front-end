@@ -3,24 +3,6 @@ import { useState, useEffect } from 'react'
 import ReactMapGL, { MapContext } from 'react-map-gl'
 import { getCoordinates } from '../lib/helpers'
 
-export default function Map(props) {
-  const [mapMarkers, setMapMarkers] = useState([{}])
-
-  const countries = props.props
-  // console.log(`The props are >>>>>>`, countries)
-
-  useEffect(() => {
-    // console.log(`I'm logging the countries fromm the map function`, countries)
-    let places = []
-    if (!countries) {
-      return
-    } else {
-      for (let i = 0; i < countries.length; i++) {
-        // console.log(`The country visited is >>>`, countries[i].name)
-        getCoordinates(countries[i]?.name)
-      }
-    }
-  }, [countries])
 
   const coordinates = [
     {
@@ -55,7 +37,11 @@ export default function Map(props) {
       >
         {/* MAP OVER THE MARKERS FUNCTION WITH CO-ORDINATES */}
         {coordinates?.map((coordinates) => (
-          <CustomMarker lat={coordinates.lat} lng={coordinates.lng} />
+          <CustomMarker
+            key={coordinates.lat}
+            lat={coordinates.lat}
+            lng={coordinates.lng}
+          />
         ))}
 
         {/* END OF MAP FUNCTION */}
