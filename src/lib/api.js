@@ -1,11 +1,39 @@
-
-import axios from "axios";
+import axios from 'axios'
 
 // All methods for interacting with the api
 
 export const getAllCountries = async () => {
-  const data = await axios.get(`http://localhost:8001/api/countries`);
-  console.log("this is data returning from the API", data);
+  const data = await axios.get(`http://localhost:8001/api/countries`)
 
-  return data;
-};
+  console.log('this is data returning from the API', data)
+
+  return data
+}
+
+// getAllCountriesById
+const getAllCountriesById = (async) => {
+  const data = await axios.get('localhost:3000/api/countries/:id')
+  console.log('This is our countries returning with Ids')
+}
+axios(getAllCountriesById)
+  .then(function (response) {
+    console.log(JSON.stringify(response.data))
+  })
+  .catch(function (error) {
+    console.log(error)
+  })
+  // console.log('this is data returning from the API', data)
+  return data
+}
+
+export const createCountry = async (formData) => {
+  const data = await axios.post(`http://localhost:8001/api/countries`)
+  // console.log(`👀 This is the response form the CREATECOUNTRY api call`, data)
+  return data
+}
+
+export const getUser = async (id) => {
+  const user = await axios.get(`http://localhost:8001/api/user/${id}`)
+  // console.log(`This is the user data from getUser!`, user)
+  return user
+}

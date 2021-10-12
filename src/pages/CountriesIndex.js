@@ -10,7 +10,7 @@ export default function Countries() {
       setCountries(response.data)
     })
   }, [])
-  console.log(`THIS IS THE DATA >>>>>`, countries)
+
 
   return (
     <>
