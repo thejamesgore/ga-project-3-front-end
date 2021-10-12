@@ -10,12 +10,13 @@ export default function Map(props) {
   // console.log(`The props are >>>>>>`, countries)
 
   useEffect(() => {
-    console.log(`I'm logging the countries fromm the map function`, countries)
+    // console.log(`I'm logging the countries fromm the map function`, countries)
+    let places = []
     if (!countries) {
       return
     } else {
       for (let i = 0; i < countries.length; i++) {
-        console.log(`The country visited is >>>`, countries[i].name)
+        // console.log(`The country visited is >>>`, countries[i].name)
         getCoordinates(countries[i]?.name)
       }
     }
