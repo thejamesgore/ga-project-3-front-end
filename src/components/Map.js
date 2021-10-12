@@ -17,7 +17,7 @@ export default function Map(props) {
 
   const getCoordinates = async (location) => {
     //needs to take an array
-    Geocode.fromAddress(location).then(
+    await Geocode.fromAddress(location).then(
       (response) => {
         let coordinates
         coordinates = response.results[0].geometry.location
@@ -33,7 +33,7 @@ export default function Map(props) {
 
   useEffect(() => {
     // console.log(`I'm logging the countries fromm the map function`, countries)
-    let places = []
+
     if (!countries) {
       return
     } else {
@@ -44,7 +44,9 @@ export default function Map(props) {
     }
   }, [countries])
 
-  console.log(`MAP MARKERS ARE ⭐️`, mapMarkers.lat)
+  useEffect(() => {
+    console.log(`MAP MARKERS ARE ⭐️`, mapMarkers)
+  }, [mapMarkers])
 
   const coordinates = [
     {
