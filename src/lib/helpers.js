@@ -11,7 +11,6 @@ export const getCoordinates = async (location) => {
       let coordinates
       coordinates = response.results[0].geometry.location
       console.log(`the coorinates are`, coordinates)
-
       // needs to return an array
     },
     (error) => {
