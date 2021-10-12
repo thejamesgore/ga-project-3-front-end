@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import ReactMapGL, { MapContext } from 'react-map-gl'
+
 // import { getCoordinates } from '../lib/helpers'
 
 const coordinates = [
