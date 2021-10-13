@@ -5,19 +5,16 @@ import { getAllCountries, getUser } from '../lib/api'
 import Map from '../components/Map.js'
 
 export default function MembersHome() {
-  // function that sorts through that data and only adds countries to an array
-  // Displays every country travelled to underneath map
-  // functinon that passes each location from the array into map function and drops pin onto map
   const [userId, setUserId] = useState('')
   const [countries, setCountries] = useState([])
   const [userCountries, setUserCountries] = useState()
 
   useEffect(() => {
     getAllCountries().then(function (response) {
+      // console.log(`Response from API`, response)
       setCountries(response.data)
     })
   }, [])
-  // console.log(countries)
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -26,18 +23,21 @@ export default function MembersHome() {
   // console.log('User ID FROM API IS >> ', userId?.data._id)
 
   useEffect(() => {
-    // console.log(`The user id is >>> `, userId)
-    let visitedCountries = countries.filter(
-      (country) => country.createdBy === userId.data._id
-    )
-
-    // visitedCountries.map(({ name }) => {
-    //   // console.log(`Visisted countries are >>> `, { name })
-    // })
-    // console.log(`PARSED VISITED COUNTRIES >>> `, parsedVisited)
-    setUserCountries(visitedCountries)
-  }, [userId])
-  // console.log('countries created by logged in user  >>>', userCountries)
+    if (!userId || !countries) {
+      return
+    } else {
+      const username = userId.data.username
+      const countryKey = countries.filter((country) => country.createdBy)
+      let mappedKey = countryKey.map((item) => ({
+        name: item.name,
+        createdBy: item.createdBy.username,
+      }))
+      let finalCountries = mappedKey.filter(
+        (country) => country.createdBy == username
+      )
+      setUserCountries(finalCountries)
+    }
+  }, [userId, countries])
 
   return (
     <div className="members-home">
@@ -52,15 +52,17 @@ export default function MembersHome() {
 
         <div className="right-side">
           <h1>Create New Trip</h1>
-          {/* <CreateCountryForm /> */}
+          <CreateCountryForm />
         </div>
       </div>
       <div className="visted-bar">
-        <div>
+        <div className="visited-countries">
           {userCountries?.map(({ name }) => (
             <VisistedPlaces key={name} name={name} />
           ))}
         </div>
+      </div>
+      <div className="progress-bar">
         <h1>THIS IS WHERE THE TOTAL COUNTRIES VISITED BAR GOES</h1>
       </div>
     </div>
