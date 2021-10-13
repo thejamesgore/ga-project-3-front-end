@@ -1,24 +1,29 @@
 import React from 'react'
 import { useState } from 'react'
 import ReactMapGL, { MapContext } from 'react-map-gl'
+import { useEffect } from 'react/cjs/react.development'
+import { getCoordinates } from '../lib/helpers'
 
-// import { getCoordinates } from '../lib/helpers'
+import Geocode from 'react-geocode'
+Geocode.setApiKey('AIzaSyBK6SzZbuxMjIHPxdoBk54ag5K23MLTss4')
+Geocode.setLanguage('en')
+Geocode.enableDebug()
 
-const coordinates = [
-  {
-    lat: 51.5073509,
-    lng: -0.1277583,
-  },
-  {
-    lat: 48.856614,
-    lng: 2.3522219,
-  },
-  {
-    lat: 53.1423672,
-    lng: -7.692053599999999,
-  },
-]
 export default function Map(props) {
+  const [coordinates, setCoordinates] = useState([
+    // {
+    //   lat: 51.5073509,
+    //   lng: -0.1277583,
+    // },
+    // {
+    //   lat: 48.856614,
+    //   lng: 2.3522219,
+    // },
+    // {
+    //   lat: 53.1423672,
+    //   lng: -7.692053599999999,
+    // },
+  ])
   const [viewport, setViewport] = useState({
     width: 500,
     height: 300,
@@ -27,7 +32,35 @@ export default function Map(props) {
     zoom: 1,
   })
 
-  // console.log(`Here are the props`, props)
+  useEffect(() => {
+    if (!props.props) {
+      return
+    } else {
+      const array = props.props
+      for (let i = 0; i < array.length; i++) {
+        console.log(`hello`, array[i].name)
+        // getCoordinates(array[i].name)
+      }
+    }
+  }, [props])
+
+  // JUST GEOCODE STUFF HERE
+
+  const getCoordinates = async (location) => {
+    Geocode.fromAddress(location).then(
+      (response) => {
+        let coordinates
+        coordinates = response.results[0].geometry.location
+        console.log(`the coorinates are`, coordinates)
+        setCoordinates(...coordinates)
+      },
+      (error) => {
+        console.error(error)
+      }
+    )
+  }
+
+  // END OF GEOCODE STUFF HERE
 
   return (
     <div>
