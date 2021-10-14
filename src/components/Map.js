@@ -1,8 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
-import ReactMapGL, { MapContext } from 'react-map-gl'
-import { useEffect } from 'react/cjs/react.development'
-import { getCoordinates } from '../lib/helpers'
+import ReactMapGL, { MapContext, Marker } from 'react-map-gl'
+// import { MdPlace } from 'react-icons/md'
+const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,4.5,2,10c0,2,0.6,3.9,1.6,5.4c0,0.1,0.1,0.2,0.2,0.3
+  c0,0,0.1,0.1,0.1,0.2c0.2,0.3,0.4,0.6,0.7,0.9c2.6,3.1,7.4,7.6,7.4,7.6s4.8-4.5,7.4-7.5c0.2-0.3,0.5-0.6,0.7-0.9
+  C20.1,15.8,20.2,15.8,20.2,15.7z`
+const SIZE = 20
 
 import Geocode from 'react-geocode'
 Geocode.setApiKey('AIzaSyBK6SzZbuxMjIHPxdoBk54ag5K23MLTss4')
@@ -10,57 +13,16 @@ Geocode.setLanguage('en')
 Geocode.enableDebug()
 
 export default function Map(props) {
-  const [coordinates, setCoordinates] = useState([
-    // {
-    //   lat: 51.5073509,
-    //   lng: -0.1277583,
-    // },
-    // {
-    //   lat: 48.856614,
-    //   lng: 2.3522219,
-    // },
-    // {
-    //   lat: 53.1423672,
-    //   lng: -7.692053599999999,
-    // },
-  ])
-  const [viewport, setViewport] = useState({
-    width: 500,
-    height: 300,
-    latitude: 46,
-    longitude: 17,
-    zoom: 1,
-  })
-
-  useEffect(() => {
-    if (!props.props) {
-      return
-    } else {
-      const array = props.props
-      for (let i = 0; i < array.length; i++) {
-        console.log(`hello`, array[i].name)
-        // getCoordinates(array[i].name)
-      }
-    }
-  }, [props])
-
-  // JUST GEOCODE STUFF HERE
-
-  const getCoordinates = async (location) => {
-    Geocode.fromAddress(location).then(
-      (response) => {
-        let coordinates
-        coordinates = response.results[0].geometry.location
-        console.log(`the coorinates are`, coordinates)
-        setCoordinates(...coordinates)
-      },
-      (error) => {
-        console.error(error)
-      }
-    )
-  }
-
-  // END OF GEOCODE STUFF HERE
+  const [viewport, setViewport] = useState(
+    {
+      width: 500,
+      height: 300,
+      latitude: 46,
+      longitude: 17,
+      zoom: 1,
+    },
+    []
+  )
 
   return (
     <div>
@@ -72,37 +34,25 @@ export default function Map(props) {
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
       >
         {/* MAP OVER THE MARKERS FUNCTION WITH CO-ORDINATES */}
-        {coordinates?.map((coordinates) => (
-          <CustomMarker
-            key={coordinates.lat}
-            lat={coordinates.lat}
-            lng={coordinates.lng}
-          />
+        {props.props?.map(({ lat, lng }) => (
+          <Marker key={lat} latitude={lat} longitude={lng}>
+            <svg
+              height={SIZE}
+              viewBox="0 0 24 24"
+              style={{
+                cursor: 'pointer',
+                fill: '#d00',
+                stroke: 'none',
+                transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
+              }}
+            >
+              <path d={ICON} />
+            </svg>
+          </Marker>
         ))}
 
         {/* END OF MAP FUNCTION */}
       </ReactMapGL>
-    </div>
-  )
-}
-
-function CustomMarker(props) {
-  const context = React.useContext(MapContext)
-
-  const { lng, lat } = props
-
-  const [x, y] = context.viewport.project([lng, lat])
-
-  const markerStyle = {
-    position: 'absolute',
-    background: '#fff',
-    left: x,
-    top: y,
-  }
-
-  return (
-    <div style={markerStyle}>
-      ({lng}, {lat})
     </div>
   )
 }
