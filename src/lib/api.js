@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { getToken } from './auth'
+const baseUrl = 'http://localhost:8001/api'
 
 // All methods for interacting with the api
 
@@ -17,10 +19,15 @@ export const getAllCountriesById = async () => {
   return data
 }
 
-export const createCountry = async (formData) => {
-  const data = await axios.post(`http://localhost:8001/api/countries`)
+export const createCountry = async (state) => {
+  const requestConfig = {
+    headers: { Authorization: `Bearer ${getToken()}` },
+  }
+  console.log('this is request config', requestConfig)
+  console.log('this is formdad!!!', state)
+  return axios.post(`${baseUrl}/countries`, state, requestConfig)
+
   // console.log(`👀 This is the response form the CREATECOUNTRY api call`, data)
-  return data
 }
 
 export const getUser = async (id) => {

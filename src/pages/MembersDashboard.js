@@ -52,7 +52,7 @@ export default function MembersHome() {
 
         <div className="right-side">
           <h1>Create New Trip</h1>
-          {/* <CreateCountryForm /> */}
+          <CreateCountryForm />
         </div>
       </div>
       <div className="visted-bar">

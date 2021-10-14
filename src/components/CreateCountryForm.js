@@ -1,54 +1,69 @@
 import React, { useState } from 'react'
+import CountryNameField from './fields/CountryNameField'
+import YearVistiedField from './fields/YearVistiedField'
+import CommentsField from './fields/CommentsField'
+import RatingFields from './fields/RatingFields'
+import { createCountry } from '../lib/api'
+import { useHistory } from 'react-router'
+import City from './fields/City'
 
 export default function CreateCountryForm() {
+  const history = useHistory()
   const [state, setState] = useState({
-    data: {
-      name: '',
-      city: '',
-      yearVisited: '',
-      comments: {
-        text: '',
-        rating: '',
-      },
+    countryName: '',
+    city: '',
+    yearVisited: '',
+    comments: {
+      text: '',
+      rating: '',
     },
   })
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+      const result = await createCountry(state)
+      console.log(result._id)
+      history.push('/countries')
+    } catch (err) {
+      console.log('error pushing country', err)
+    }
+  }
   const handleChange = (e) => {
     const formData = {
-      ...state.data,
-      [e.taget.name]: e.target.value,
+      ...state,
     }
-    setState({ formData })
-  }
+    console.log('this is formdata', formData)
 
+    console.log('this is state', state)
+    setState({ ...formData, [e.target.name]: e.target.value })
+  }
   return (
     <div>
-      <form className="form">
+      <form onSubmit={handleSubmit} className="form">
         <label className="label">Country</label>
-        <input
-          className="input"
-          placeholder="Country"
-          name="Country"
-          value="Country"
+        <CountryNameField
           handleChange={handleChange}
+          name={state.countryName}
         />
         <label className="label">City</label>
-        <input
-          className="input"
-          placeholder="City"
-          name="City"
-          value="City"
-          handleChange={handleChange}
-        />
+        <City handleChange={handleChange} name={state.city} />
+
         <label className="label">Year Visited</label>
-        <input
-          className="input"
-          placeholder="Year Visited"
-          name="yearVisited"
-          value="Year Visited"
+        <YearVistiedField
           handleChange={handleChange}
+          name={state.yearVisited}
         />
-        <input type="submit" />
+        <label className="label">Comments</label>
+        <CommentsField handleChange={handleChange} name={state.comments.text} />
+        <label className="label">Rating</label>
+        <RatingFields
+          handleChange={handleChange}
+          name={state.comments.rating}
+        />
+        <br></br>
+        <input type="submit" value={`add ${state.name}`} />
       </form>
     </div>
   )
