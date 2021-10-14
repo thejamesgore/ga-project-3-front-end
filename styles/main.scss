@@ -111,6 +111,12 @@
 }
 
 .progress-bar {
+  background-color: #f4f4f4;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
   display: flex;
+  align-items: center;
   justify-content: center;
+  height: 10vh;
+  margin: 0;
 }
