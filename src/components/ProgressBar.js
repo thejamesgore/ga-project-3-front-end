@@ -2,32 +2,31 @@ import React from 'react'
 
 const Progress = ({ done }) => {
   const [style, setStyle] = React.useState({})
+  const percentage = (done / 195) * 100
 
   setTimeout(() => {
     const newStyle = {
       opacity: 1,
-      width: `${done}%`,
+      width: `${percentage}%`,
     }
 
     setStyle(newStyle)
   }, 200)
 
   return (
-    <div className="progress">
-      <div className="progress-done" style={style}>
-        {done}%
+    <>
+      <h3 className="countries-visisted">Countries Visisted: {done} /195</h3>
+      <div className="progress">
+        <div className="progress-done" style={style}></div>
       </div>
-    </div>
+    </>
   )
 }
 
-const ProrgressBar = () => (
+const ProrgressBar = (number) => (
   <>
-    <h1>React Progress Bar</h1>
-    <Progress done="70" />
+    <Progress done="7" />
   </>
 )
-
-ReactDOM.render(<App />, document.getElementById('app'))
 
 export default ProrgressBar
