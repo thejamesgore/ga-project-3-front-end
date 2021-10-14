@@ -10,7 +10,7 @@ import City from './fields/City'
 export default function CreateCountryForm() {
   const history = useHistory()
   const [state, setState] = useState({
-    countryName: '',
+    name: '',
     city: '',
     yearVisited: '',
     comments: {
@@ -23,9 +23,9 @@ export default function CreateCountryForm() {
     e.preventDefault()
 
     try {
-      const result = await createCountry(state)
-      console.log(result._id)
-      history.push('/countries')
+      const response = await createCountry(state)
+      console.log('response from API', response.data.id)
+      history.push(`/countries${response.data.id}`)
     } catch (err) {
       console.log('error pushing country', err)
     }
@@ -43,10 +43,7 @@ export default function CreateCountryForm() {
     <div>
       <form onSubmit={handleSubmit} className="form">
         <label className="label">Country</label>
-        <CountryNameField
-          handleChange={handleChange}
-          name={state.countryName}
-        />
+        <CountryNameField handleChange={handleChange} name={state.name} />
         <label className="label">City</label>
         <City handleChange={handleChange} name={state.city} />
 

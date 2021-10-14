@@ -19,7 +19,7 @@ export const getAllCountriesById = async () => {
   return data
 }
 
-export const createCountry = async (state) => {
+export const createCountry = (state) => {
   const requestConfig = {
     headers: { Authorization: `Bearer ${getToken()}` },
   }
