@@ -4,14 +4,48 @@ import VisistedPlaces from '../components/VisistedPlaces'
 import { getAllCountries, getUser } from '../lib/api'
 import Map from '../components/Map.js'
 
+import Geocode from 'react-geocode'
+Geocode.setApiKey('AIzaSyBK6SzZbuxMjIHPxdoBk54ag5K23MLTss4')
+Geocode.setLanguage('en')
+Geocode.enableDebug()
+
 export default function MembersHome() {
   const [userId, setUserId] = useState('')
   const [countries, setCountries] = useState([])
   const [userCountries, setUserCountries] = useState()
+  const [coordinates, setCoordinates] = useState([
+    {
+      lat: 51,
+      lng: 0,
+    },
+  ])
+  let geocodedCountries = []
+
+  useEffect(() => {
+    if (!userCountries) {
+      return
+    }
+    const array = userCountries
+    for (let i = 0; i < array.length; i++) {
+      getCoordinates(array[i].name)
+    }
+  }, [userCountries])
+
+  const getCoordinates = async (location) => {
+    Geocode.fromAddress(location).then(
+      (response) => {
+        geocodedCountries.push(response.results[0].geometry.location)
+        console.log(`Data from function`, geocodedCountries)
+        setCoordinates(geocodedCountries)
+      },
+      (error) => {
+        console.error(error)
+      }
+    )
+  }
 
   useEffect(() => {
     getAllCountries().then(function (response) {
-      // console.log(`Response from API`, response)
       setCountries(response.data)
     })
   }, [])
@@ -45,7 +79,7 @@ export default function MembersHome() {
         {/* LEFT SIDE OF PAGE */}
         <div className="left-side">
           {/* MAP COMPONENET */}
-          <Map props={userCountries} />
+          <Map props={coordinates} />
         </div>
 
         {/* RIGHT SIDE OF PAGE */}
