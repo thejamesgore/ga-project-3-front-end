@@ -19,6 +19,7 @@ export default function MembersHome() {
       lng: 0,
     },
   ])
+  const [countryCount, setCountryCount] = useState()
   let geocodedCountries = []
 
   useEffect(() => {
@@ -75,6 +76,9 @@ export default function MembersHome() {
 
   return (
     <div className="members-home">
+      <div className="progress-bar">
+        <h1>THIS IS WHERE THE TOTAL COUNTRIES VISITED BAR GOES</h1>
+      </div>
       <div className="main-members-container">
         {/* LEFT SIDE OF PAGE */}
         <div className="left-side">
@@ -95,9 +99,6 @@ export default function MembersHome() {
             <VisistedPlaces key={name} name={name} />
           ))}
         </div>
-      </div>
-      <div className="progress-bar">
-        <h1>THIS IS WHERE THE TOTAL COUNTRIES VISITED BAR GOES</h1>
       </div>
     </div>
   )

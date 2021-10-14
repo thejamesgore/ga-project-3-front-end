@@ -26,7 +26,6 @@ export default function Map(props) {
 
   return (
     <div>
-      <h1>This is where the map goes</h1>
       <ReactMapGL
         {...viewport}
         // mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
