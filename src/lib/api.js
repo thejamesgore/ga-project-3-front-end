@@ -7,7 +7,7 @@ const baseUrl = 'http://localhost:8001/api'
 export const getAllCountries = async () => {
   const data = await axios.get(`http://localhost:8001/api/countries`)
 
-  console.log('this is data returning from the API', data)
+  // console.log('this is data returning from the API', data.data)
 
   return data
 }
