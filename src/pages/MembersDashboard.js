@@ -5,6 +5,7 @@ import { getAllCountries, getUser } from '../lib/api'
 import Map from '../components/Map.js'
 
 import Geocode from 'react-geocode'
+import ProrgressBar from '../components/ProgressBar'
 Geocode.setApiKey('AIzaSyBK6SzZbuxMjIHPxdoBk54ag5K23MLTss4')
 Geocode.setLanguage('en')
 Geocode.enableDebug()
@@ -77,7 +78,7 @@ export default function MembersHome() {
   return (
     <div className="members-home">
       <div className="progress-bar">
-        <h1>THIS IS WHERE THE TOTAL COUNTRIES VISITED BAR GOES</h1>
+        <ProrgressBar />
       </div>
       <div className="main-members-container">
         {/* LEFT SIDE OF PAGE */}
