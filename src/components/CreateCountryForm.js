@@ -10,57 +10,59 @@ import City from './fields/City'
 export default function CreateCountryForm() {
   const history = useHistory()
   const [state, setState] = useState({
-    name: '',
-    city: '',
-    yearVisited: '',
-    comments: {
-      text: '',
+    formData: {
+      name: '',
+      city: '',
+      yearVisited: '',
+      comments: '',
       rating: '',
     },
   })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(`state is`, state)
     try {
-      const response = await createCountry(state)
-      console.log('response from API', response.data.id)
-      history.push(`/countries${response.data.id}`)
+      const result = await createCountry(state.formData)
+      history.push(`/members/`)
     } catch (err) {
       console.log('error pushing country', err)
     }
   }
   const handleChange = (e) => {
     const formData = {
-      ...state,
+      ...state.formData,
+      [e.target.name]: e.target.value,
     }
-    console.log('this is formdata', formData)
-
-    console.log('this is state', state)
-    setState({ ...formData, [e.target.name]: e.target.value })
+    setState({ formData })
   }
   return (
     <div>
       <form onSubmit={handleSubmit} className="form">
         <label className="label">Country</label>
-        <CountryNameField handleChange={handleChange} name={state.name} />
+        <CountryNameField
+          handleChange={handleChange}
+          name={state.formData.name}
+        />
         <label className="label">City</label>
-        <City handleChange={handleChange} name={state.city} />
+        <City handleChange={handleChange} name={state.formData.city} />
 
         <label className="label">Year Visited</label>
         <YearVistiedField
           handleChange={handleChange}
-          name={state.yearVisited}
+          name={state.formData.yearVisited}
         />
         <label className="label">Comments</label>
-        <CommentsField handleChange={handleChange} name={state.comments.text} />
+        <CommentsField
+          handleChange={handleChange}
+          name={state.formData.comments.text}
+        />
         <label className="label">Rating</label>
         <RatingFields
           handleChange={handleChange}
-          name={state.comments.rating}
+          name={state.formData.comments.rating}
         />
         <br></br>
-        <input type="submit" value={`add ${state.name}`} />
+        <input type="submit" value={`add ${state.formData.name}`} />
       </form>
     </div>
   )

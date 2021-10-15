@@ -23,9 +23,9 @@ const Progress = ({ done }) => {
   )
 }
 
-const ProrgressBar = (number) => (
+const ProrgressBar = ({ number }) => (
   <>
-    <Progress done="7" />
+    <Progress done={number} />
   </>
 )
 

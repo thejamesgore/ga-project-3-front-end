@@ -19,13 +19,12 @@ export const getAllCountriesById = async () => {
   return data
 }
 
-export const createCountry = (state) => {
+export const createCountry = (formData) => {
   const requestConfig = {
     headers: { Authorization: `Bearer ${getToken()}` },
   }
-  console.log('this is request config', requestConfig)
-  console.log('this is formdad!!!', state)
-  return axios.post(`${baseUrl}/countries`, state, requestConfig)
+
+  return axios.post(`${baseUrl}/countries`, formData, requestConfig)
 
   // console.log(`👀 This is the response form the CREATECOUNTRY api call`, data)
 }
