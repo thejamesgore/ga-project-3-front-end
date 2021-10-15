@@ -1,13 +1,13 @@
 import React from 'react'
 
-const CommentsField = ({ comments, handleChange }) => {
+const CommentsField = ({ text, handleChange }) => {
   return (
     <div>
       <input
         className="input"
         placeholder="Comments"
-        name="comments"
-        value={comments}
+        name="text"
+        value={text}
         onChange={handleChange}
       />
     </div>

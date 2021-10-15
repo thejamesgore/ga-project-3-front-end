@@ -1,13 +1,13 @@
 import React from 'react'
 
-const CountryNameField = ({ countryName, handleChange }) => {
+const CountryNameField = ({ name, handleChange }) => {
   return (
     <div>
       <input
         className="input"
-        placeholder="Country Name"
-        name="countryName"
-        value={countryName}
+        placeholder="Name"
+        name="name"
+        value={name}
         onChange={handleChange}
       />
     </div>

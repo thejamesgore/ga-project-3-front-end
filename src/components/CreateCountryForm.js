@@ -21,7 +21,7 @@ export default function CreateCountryForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    console.log(`state is`, state)
     try {
       const response = await createCountry(state)
       console.log('response from API', response.data.id)
