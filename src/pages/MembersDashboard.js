@@ -20,7 +20,6 @@ export default function MembersHome() {
       lng: 0,
     },
   ])
-  const [countryCount, setCountryCount] = useState()
   let geocodedCountries = []
 
   useEffect(() => {
@@ -31,6 +30,7 @@ export default function MembersHome() {
     for (let i = 0; i < array.length; i++) {
       getCoordinates(array[i].name)
     }
+    console.log(`number of user countries are`, array.length)
   }, [userCountries])
 
   const getCoordinates = async (location) => {
@@ -78,7 +78,7 @@ export default function MembersHome() {
   return (
     <div className="members-home">
       <div className="progress-bar">
-        <ProrgressBar />
+        <ProrgressBar number={userCountries?.length} />
       </div>
       <div className="main-members-container">
         {/* LEFT SIDE OF PAGE */}
