@@ -234,3 +234,13 @@ p {
   background-color: white;
   border: none;
 }
+
+.editdelete-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.to-delete {
+  display: flex;
+  justify-content: center;
+}

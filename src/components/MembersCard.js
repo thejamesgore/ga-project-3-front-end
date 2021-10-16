@@ -54,10 +54,7 @@ function MembersCard({ name, city, rating, yearVisited, comments }) {
           </div>
         </div>
         <div className="btn">
-          <button onClick={editTrip}>
-            <p>EDIT TRIP</p>
-          </button>
-          <button>DELETE TRIP</button>
+          <button onClick={editTrip}>DELETE TRIP</button>
         </div>
       </div>
     </div>

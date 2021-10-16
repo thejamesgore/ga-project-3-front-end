@@ -35,8 +35,6 @@ export const deleteCountry = (id) => {
   }
 
   return axios.delete(`${baseUrl}/countries/${id}`, requestConfig)
-
-  // console.log(`👀 This is the response form the CREATECOUNTRY api call`, data)
 }
 
 export const getUser = async (id) => {
