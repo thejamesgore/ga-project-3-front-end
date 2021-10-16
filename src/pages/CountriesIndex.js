@@ -13,7 +13,7 @@ export default function Countries() {
       if (searchTerm.length === 0) {
         return countries
       } else {
-        return countries.name.toLowerCase().includes(searchTerm.toLowerCase())
+        return country.name.toLowerCase().includes(searchTerm.toLowerCase())
       }
     })
   }
