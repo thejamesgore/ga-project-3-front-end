@@ -5,7 +5,7 @@ const CountryNameField = ({ name, handleChange }) => {
     <div>
       <input
         className="input"
-        placeholder="Name"
+        placeholder="Country Name"
         name="name"
         value={name}
         onChange={handleChange}
