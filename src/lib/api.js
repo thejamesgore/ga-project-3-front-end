@@ -34,3 +34,18 @@ export const getUser = async (id) => {
   // console.log(`This is the user data from getUser!`, user)
   return user
 }
+
+export const getPhoto = async (country) => {
+  const requestConfig = {
+    headers: {
+      Authorization: `Bearer 563492ad6f91700001000001fac695d561974d09ae75e93910d792ff`,
+    },
+  }
+
+  const photo = await axios.get(
+    `https://api.pexels.com/v1/search?query=${country}&per_page=1`,
+    requestConfig
+  )
+  console.log(`RESULTS FROM PEXELS API >>> `, photo)
+  return photo
+}
