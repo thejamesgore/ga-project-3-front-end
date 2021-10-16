@@ -57,3 +57,9 @@ export const getPhoto = async (country) => {
   console.log(`RESULTS FROM PEXELS API >>> `, photo)
   return photo
 }
+
+export const getHeroPhoto = async () => {
+  const photo = await axios.get(`https://source.unsplash.com/weekly?travel`)
+  console.log(photo)
+  return photo
+}
