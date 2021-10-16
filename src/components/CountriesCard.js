@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { getPhoto } from '../lib/api'
 
-const CountriesCard = ({ name, city, yearVisited, comments, rating }) => {
+const CountriesCard = ({
+  name,
+  username,
+  city,
+  yearVisited,
+  comments,
+  rating,
+}) => {
   const [image, setImage] = useState()
   const placeImages = async () => {
     console.log(`HANDLE CLICKED!`)
@@ -13,23 +20,12 @@ const CountriesCard = ({ name, city, yearVisited, comments, rating }) => {
     placeImages()
   }, [name])
 
-
-const CountriesCard = ({
-  _id,
-  username,
-  name,
-  city,
-  yearVisited,
-  comments,
-  rating,
-}) => {
   console.log(`THIS IS THE USERNAME`, username)
   let user = username?.username
   return (
     <div className="country-card-container">
       <div className="country-card">
         <h2>CREATED BY {user}</h2>
-
       </div>
       <div className="image-container">
         <img src={image} alt="picture of the country" />
