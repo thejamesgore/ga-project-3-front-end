@@ -52,6 +52,7 @@ export default function Countries() {
               city={country.city}
               yearVisited={country.yearVisited}
               comments={country.comments}
+              rating={country.rating}
             />
           ))}
         </div>
