@@ -39,7 +39,7 @@ export default function CreateCountryForm() {
   }
   return (
     <div>
-      <form onSubmit={handleSubmit} className="form">
+      <form onSubmit={handleSubmit} className="login-form">
         <label className="label">Country</label>
         <CountryNameField
           handleChange={handleChange}

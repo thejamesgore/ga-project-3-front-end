@@ -1,11 +1,8 @@
 import React from 'react'
-import { getHeroPhoto } from '../lib/api'
 
 const Home = () => {
-  console.log(getHeroPhoto())
   return (
     <section>
-      <div className="hero-body"></div>
       <div>
         <p className="title">TRAVEL APP - Map your world!</p>
       </div>
