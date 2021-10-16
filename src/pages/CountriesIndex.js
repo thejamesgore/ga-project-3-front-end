@@ -53,27 +53,26 @@ export default function Countries() {
       </div>
       <div className="display-country-cards">
         {/* countries starts */}
-        <div>
-          {filterCountries().map((country) => (
-            <CountriesCard
-              key={country._id}
-              username={country.createdBy}
-              name={country.name}
-              city={country.city}
-              yearVisited={country.yearVisited}
-              comments={country.comments}
-              rating={country.rating}
-            />
-          ))}
-        </div>
 
-        {/* countries ends */}
-        <footer className="footer">
-          <div className="footer-container">
-            <p>A BORING FOOTER</p>
-          </div>
-        </footer>
+        {filterCountries().map((country) => (
+          <CountriesCard
+            key={country._id}
+            username={country.createdBy}
+            name={country.name}
+            city={country.city}
+            yearVisited={country.yearVisited}
+            comments={country.comments}
+            rating={country.rating}
+          />
+        ))}
       </div>
+
+      {/* countries ends */}
+      <footer className="footer">
+        <div className="footer-container">
+          <p>A BORING FOOTER</p>
+        </div>
+      </footer>
     </>
   )
 }

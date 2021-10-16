@@ -25,26 +25,29 @@ const CountriesCard = ({
   return (
     <div className="country-card-container">
       <div className="country-card">
-        <h2>CREATED BY {user}</h2>
-      </div>
-      <div className="image-container">
-        <img src={image} alt="picture of the country" />
-      </div>
-      <div className="country-card-content">
-        <h3>Country: {name}</h3>
-      </div>
-      <div className="country-card-content">
-        <p>Cities Visited: {city}</p>
-      </div>
-
-      <div className="country-card-content">
-        <p>Year Visted: {yearVisited}</p>
-      </div>
-      <div className="country-card-content">
-        <p>Comments: {comments}</p>
-      </div>
-      <div className="country-card-content">
-        <p>Rating: {rating}</p>
+        <div className="country-card-content">
+          <div className="image-container">
+            <img src={image} alt="picture of the country" />
+          </div>
+          <div className="country-card-content">
+            <h2>CREATED BY: {user}</h2>
+          </div>
+        </div>
+        <div className="country-card-content">
+          <h3>Country: {name}</h3>
+        </div>
+        <div className="country-card-content">
+          <h4>Cities Visited: {city}</h4>
+        </div>
+        <div className="country-card-content">
+          <h4>Year Visted: {yearVisited}</h4>
+        </div>
+        <div className="country-card-content">
+          <h4>Comments: {comments}</h4>
+        </div>
+        <div className="country-card-content">
+          <h4>Rating: {rating}</h4>
+        </div>
       </div>
     </div>
   )
