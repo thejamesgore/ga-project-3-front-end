@@ -3,8 +3,8 @@ import React from 'react'
 const Home = () => {
   return (
     <section className="home-page-section">
-      <div>
-        <p className="title">TRAVEL APP - Map your world!</p>
+      <div className="home-title">
+        <h1 className="home-title">TRAVEL APP - Map your world!</h1>
       </div>
 
       <div className="hero-image-container">
@@ -43,11 +43,9 @@ const Home = () => {
 
       <footer className="footer">
         <div className="footer-container">
-
           <p className="footer-title">
             A SUPER COOL TRAVEL WEBSITE CREATED BY JAMES, OLLY AND EMMA
           </p>
-
         </div>
       </footer>
     </section>
