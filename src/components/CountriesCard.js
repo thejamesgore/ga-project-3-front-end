@@ -1,10 +1,20 @@
 import React from 'react'
 
-const CountriesCard = ({ _id, name, city, yearVisited, comments, rating }) => {
+const CountriesCard = ({
+  _id,
+  username,
+  name,
+  city,
+  yearVisited,
+  comments,
+  rating,
+}) => {
+  console.log(`THIS IS THE USERNAME`, username)
+  let user = username?.username
   return (
     <div className="country-card-container">
       <div className="country-card">
-        <h2>CREATED BY @USERNAME</h2>
+        <h2>CREATED BY {user}</h2>
       </div>
       <div>
         <h3>Country: {name}</h3>
