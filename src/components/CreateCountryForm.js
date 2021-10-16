@@ -23,7 +23,7 @@ export default function CreateCountryForm() {
     e.preventDefault()
     try {
       const result = await createCountry(state.formData)
-      history.push(`/members/`)
+      history.push(`/members/${result}`)
     } catch (err) {
       console.log('error pushing country', err)
     }
@@ -62,7 +62,7 @@ export default function CreateCountryForm() {
           name={state.formData.comments.rating}
         />
         <br></br>
-        <input type="submit" value={`add ${state.formData.name}`} />
+        <input type="submit" value={`Add Your Trip`} />
       </form>
     </div>
   )

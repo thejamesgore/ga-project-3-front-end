@@ -5,8 +5,11 @@ const RatingFields = ({ rating, handleChange }) => {
     <div>
       <input
         className="input"
-        placeholder="Rating"
+        placeholder="1"
         name="rating"
+        type="number"
+        min="1"
+        max="5"
         value={rating}
         onChange={handleChange}
       />
