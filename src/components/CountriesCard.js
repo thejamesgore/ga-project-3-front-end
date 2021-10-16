@@ -1,23 +1,6 @@
 import React from 'react'
 
-const CountriesCard = ({
-  _id,
-  name,
-  city,
-  yearVisited,
-  comments,
-  userAccount,
-}) => {
-  console.log(
-    'this is the city',
-    // _id,
-    // name,
-    city,
-    // yearVisited,
-    comments
-    // userAccount
-  )
-
+const CountriesCard = ({ _id, name, city, yearVisited, comments, rating }) => {
   return (
     <div className="country-card-container">
       <div className="country-card">
@@ -27,17 +10,17 @@ const CountriesCard = ({
         <h3>Country: {name}</h3>
       </div>
       <div>
-        <p>Cities Visited: {city[0]?.name}</p>
+        <p>Cities Visited: {city}</p>
       </div>
 
       <div>
         <p>Year Visted: {yearVisited}</p>
       </div>
       <div>
-        <p>Comments: {comments[0]?.text}</p>
+        <p>Comments: {comments}</p>
       </div>
       <div>
-        <p>Rating: {comments[0]?.rating}</p>
+        <p>Rating: {rating}</p>
       </div>
     </div>
   )
