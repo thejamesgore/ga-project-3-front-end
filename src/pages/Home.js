@@ -25,7 +25,9 @@ const Home = () => {
       </div>
       <footer className="footer">
         <div className="footer-container">
-          <p>A BORING FOOTER</p>
+          <p className="footer-title">
+            A SUPER COOL TRAVEL WEBSITE CREATED BY JAMES, OLLY AND EMMA
+          </p>
         </div>
       </footer>
     </section>
