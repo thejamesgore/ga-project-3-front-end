@@ -43,7 +43,11 @@ const Home = () => {
 
       <footer className="footer">
         <div className="footer-container">
-          <p>@Travel-App Created by James Gore, Emmma Smedley, Olly Pettyfer</p>
+
+          <p className="footer-title">
+            A SUPER COOL TRAVEL WEBSITE CREATED BY JAMES, OLLY AND EMMA
+          </p>
+
         </div>
       </footer>
     </section>

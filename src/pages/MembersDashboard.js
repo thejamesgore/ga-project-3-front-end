@@ -99,7 +99,7 @@ export default function MembersHome() {
         {/* RIGHT SIDE OF PAGE */}
 
         <div className="right-side">
-          <h2>Create New Trip</h2>
+          <h3>Create New Trip</h3>
           <CreateCountryForm />
         </div>
       </div>
