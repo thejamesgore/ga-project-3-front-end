@@ -64,7 +64,11 @@ export default function CreateCountryForm() {
           name={state.formData.comments.rating}
         />
         <br></br>
-        <input type="submit" value={`Add Your Trip`} />
+        <input
+          className="btn2 btn-primary btn-ghost"
+          type="submit"
+          value={`Add Your Trip`}
+        />
       </form>
     </div>
   )

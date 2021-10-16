@@ -54,7 +54,7 @@ export default function Login({ callback }) {
             </div>
 
             <div>
-              <label for="password">Password</label>
+              <label>Password</label>
             </div>
             <div className="form-input-material">
               <input
