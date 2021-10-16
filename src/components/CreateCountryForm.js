@@ -4,11 +4,9 @@ import YearVistiedField from './fields/YearVistiedField'
 import CommentsField from './fields/CommentsField'
 import RatingFields from './fields/RatingFields'
 import { createCountry } from '../lib/api'
-import { useHistory } from 'react-router'
 import City from './fields/City'
 
 export default function CreateCountryForm() {
-  const history = useHistory()
   const [state, setState] = useState({
     formData: {
       name: '',
@@ -19,11 +17,15 @@ export default function CreateCountryForm() {
     },
   })
 
+  const refreshPage = () => {
+    window.location.reload(false)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const result = await createCountry(state.formData)
-      history.push(`/members/${result}`)
+      refreshPage()
     } catch (err) {
       console.log('error pushing country', err)
     }
@@ -54,7 +56,7 @@ export default function CreateCountryForm() {
         <label className="label">Comments</label>
         <CommentsField
           handleChange={handleChange}
-          name={state.formData.comments.text}
+          name={state.formData.comments}
         />
         <label className="label">Rating</label>
         <RatingFields

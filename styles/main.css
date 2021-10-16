@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .navbar-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6,6 +10,17 @@
       justify-content: space-around;
   padding: 10px;
   background: #7ee1e8;
+}
+
+.navbar-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0px 10px;
+  text-decoration: none;
 }
 
 .country-card-container {
@@ -159,7 +174,7 @@
 }
 
 .text-area {
-  height: 200px;
+  height: 100px;
   word-break: break-word;
 }
 
@@ -310,5 +325,23 @@ p {
   padding: 0.5 rem;
   background-color: white;
   border: none;
+}
+
+.editdelete-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.to-delete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,14 +1,14 @@
 import React from 'react'
 
-const CommentsField = ({ text, handleChange }) => {
+const CommentsField = ({ comments, handleChange }) => {
   return (
     <div>
-      <input
+      <textarea
         className="input text-area"
         type="text"
         placeholder="Comments"
-        name="text"
-        value={text}
+        name="comments"
+        value={comments}
         max="300"
         onChange={handleChange}
       />

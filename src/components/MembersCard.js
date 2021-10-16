@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useEffect } from 'react/cjs/react.development'
 import { getPhoto } from '../lib/api'
 
-function MembersCard({ name, city, rating, comments }) {
+function MembersCard({ name, city, rating, yearVisited, comments }) {
+  const history = useHistory()
   const [image, setImage] = useState()
   const placeImages = async () => {
     console.log(`HANDLE CLICKED!`)
@@ -13,6 +15,10 @@ function MembersCard({ name, city, rating, comments }) {
   useEffect(() => {
     placeImages()
   }, [name])
+
+  const editTrip = () => {
+    history.push(`/editdelete/${name}`)
+  }
 
   return (
     <div className="card-container">
@@ -40,12 +46,15 @@ function MembersCard({ name, city, rating, comments }) {
               ? ''
               : 'No comments added for this trip. Why not add some by clicking the edit button!'}
           </p>
+          <div className="card-body">
+            <h4>
+              {yearVisited ? 'You went on this trip in ' : ''}
+              {yearVisited}
+            </h4>
+          </div>
         </div>
         <div className="btn">
-          <button>
-            <p>Edit</p>
-          </button>
-          <button>DO SOMETHING</button>
+          <button onClick={editTrip}>DELETE TRIP</button>
         </div>
       </div>
     </div>

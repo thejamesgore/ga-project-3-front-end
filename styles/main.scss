@@ -1,9 +1,19 @@
+body {
+  margin: 0;
+}
 .navbar-container {
   display: flex;
   justify-content: space-around;
   padding: 10px;
 
   background: #7ee1e8;
+}
+
+.navbar-items {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 10px;
+  text-decoration: none;
 }
 
 .country-card-container {
@@ -112,7 +122,7 @@
 }
 
 .text-area {
-  height: 200px;
+  height: 100px;
   word-break: break-word;
 }
 
@@ -223,4 +233,14 @@ p {
   padding: 0.5 rem;
   background-color: white;
   border: none;
+}
+
+.editdelete-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.to-delete {
+  display: flex;
+  justify-content: center;
 }
