@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import CreateCountryForm from '../components/CreateCountryForm'
-import VisistedPlaces from '../components/VisistedPlaces'
 import { getAllCountries, getUser } from '../lib/api'
 import Map from '../components/Map.js'
 

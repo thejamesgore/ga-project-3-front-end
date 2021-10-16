@@ -29,6 +29,16 @@ export const createCountry = (formData) => {
   // console.log(`👀 This is the response form the CREATECOUNTRY api call`, data)
 }
 
+export const deleteCountry = (id) => {
+  const requestConfig = {
+    headers: { Authorization: `Bearer ${getToken()}` },
+  }
+
+  return axios.delete(`${baseUrl}/countries/${id}`, requestConfig)
+
+  // console.log(`👀 This is the response form the CREATECOUNTRY api call`, data)
+}
+
 export const getUser = async (id) => {
   const user = await axios.get(`http://localhost:8001/api/user/${id}`)
   // console.log(`This is the user data from getUser!`, user)
