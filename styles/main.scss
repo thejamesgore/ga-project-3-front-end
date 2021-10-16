@@ -16,6 +16,32 @@ body {
   text-decoration: none;
 }
 
+.hero-image-container {
+  background: url(https://images.unsplash.com/photo-1513553404607-988bf2703777?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2893&q=80);
+  height: 630px;
+  width: 100%;
+  background-size: 1665px 630px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image2 {
+  height: 520px;
+  width: 310px;
+}
+
+.links-container {
+  display: flex;
+  justify-content: center;
+}
+.links-card {
+  width: 450px;
+  margin: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 15px -5px;
+}
+
 .display-country-cards {
   display: flex;
   flex-wrap: wrap;
@@ -64,25 +90,12 @@ body {
   color: #000000;
 }
 
-.links-to-pages {
-  position: absolute;
-  text-align: center;
-  width: 1700px;
-  height: 269px;
-  left: 0px;
-  top: 594px;
-
-  background: #ffe3c9;
-}
-
 .footer-container {
   flex: display;
-  position: relative;
-  top: 700px;
   text-align: center;
-  height: 50px;
-
+  height: 35px;
   background: #c4c4c4;
+  justify-content: center;
 }
 
 .countries-card-container {
