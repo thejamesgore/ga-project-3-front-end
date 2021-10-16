@@ -100,22 +100,29 @@ export default function MembersHome() {
         {/* RIGHT SIDE OF PAGE */}
 
         <div className="right-side">
-          <h1>Create New Trip</h1>
+          <h2>Create New Trip</h2>
           <CreateCountryForm />
         </div>
       </div>
-      <div className="visted-bar">
+
+      <div className="bottom-section">
+        <h2 className="header">Trip History</h2>
         <div className="visited-countries">
-          {countryData?.map(({ name, city, yearVisited, comments, rating }) => (
-            <MembersCard
-              name={name}
-              city={city}
-              yearVisited={yearVisited}
-              imageUrl="https://whynotcuba.com/wp-content/uploads/2019/01/Havana.jpg"
-              comments={comments}
-              rating={rating}
-            />
-          ))}
+          {countryData?.map(({ name, city, yearVisited, comments, rating }) => {
+            return (
+              <div className="card">
+                <MembersCard
+                  className="card"
+                  name={name}
+                  city={city}
+                  yearVisited={yearVisited}
+                  imageUrl="https://whynotcuba.com/wp-content/uploads/2019/01/Havana.jpg"
+                  comments={comments}
+                  rating={rating}
+                />
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>

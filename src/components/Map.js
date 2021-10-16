@@ -15,8 +15,8 @@ Geocode.enableDebug()
 export default function Map(props) {
   const [viewport, setViewport] = useState(
     {
-      width: 500,
-      height: 300,
+      width: 700,
+      height: 500,
       latitude: 46,
       longitude: 17,
       zoom: 1,

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function MembersCard({ name, city, imageUrl, comments }) {
+function MembersCard({ name, city, rating, imageUrl, comments }) {
   return (
     <div className="card-container">
       <div className="image-container">
@@ -11,7 +11,13 @@ function MembersCard({ name, city, imageUrl, comments }) {
         <div className="card-title">
           <h3>
             {city}
+            {city ? ', ' : ''}
             {name}
+          </h3>
+          <h3>
+            {rating ? 'You rated it ' : ''}
+            {rating}
+            {rating ? '/5' : ''}
           </h3>
         </div>
         <div className="card-body">

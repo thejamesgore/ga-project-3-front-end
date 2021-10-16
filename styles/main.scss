@@ -67,6 +67,7 @@
 }
 
 .members-home {
+  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -74,7 +75,7 @@
 
 .main-members-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
@@ -82,18 +83,22 @@
   // display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 20 20;
+  margin: 20px 20px;
 }
+
 .right-side {
   // display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 20 20;
+  margin: 20px 20px;
 }
 
-.visted-bar {
+.bottom-section {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
 }
 
 .form {
@@ -102,12 +107,36 @@
   flex-wrap: wrap;
 }
 
+.label {
+  margin: 2px 0px;
+}
+
+.text-area {
+  height: 200px;
+  word-break: break-word;
+}
+
 .map {
   height: 300px;
   position: absolute;
 }
 
 .visited-countries {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  overflow-x: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.card {
+  margin: 10px 10px;
+  padding: 10px 10px;
   display: flex;
 }
 
@@ -179,6 +208,9 @@ p {
 
 .card-title {
   margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .btn {
