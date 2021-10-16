@@ -16,15 +16,22 @@ body {
   text-decoration: none;
 }
 
-.country-card-container {
+.display-country-cards {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-// .country-card-content {
-//   display: flex;
-// }
+.country-card-container {
+  display: flex;
+}
+
+.country-card {
+  width: 383px;
+  margin: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 15px -5px;
+}
 
 .navbar-items {
   display: flex;

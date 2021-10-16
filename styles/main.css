@@ -23,16 +23,29 @@ body {
   text-decoration: none;
 }
 
+.display-country-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .country-card-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+}
+
+.country-card {
+  width: 383px;
+  margin: 10px;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 15px -5px;
+          box-shadow: 0px 0px 15px -5px;
 }
 
 .navbar-items {
