@@ -10,6 +10,7 @@ export default function Countries() {
 
   const filterCountries = () => {
     return countries.filter((country) => {
+      console.log(`FILTERCOUNTRIES`, country.createdBy)
       if (searchTerm.length === 0) {
         return countries
       } else {
@@ -17,8 +18,6 @@ export default function Countries() {
       }
     })
   }
-
-  console.log('countries test', countries)
 
   useEffect(() => {
     getAllCountries().then(function (response) {
@@ -47,7 +46,7 @@ export default function Countries() {
           {filterCountries().map((country) => (
             <CountriesCard
               key={country._id}
-              // _id={country._id}
+              username={country.createdBy}
               name={country.name}
               city={country.city}
               yearVisited={country.yearVisited}

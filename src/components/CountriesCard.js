@@ -1,25 +1,49 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { getPhoto } from '../lib/api'
 
-const CountriesCard = ({ _id, name, city, yearVisited, comments, rating }) => {
+const CountriesCard = ({
+  name,
+  username,
+  city,
+  yearVisited,
+  comments,
+  rating,
+}) => {
+  const [image, setImage] = useState()
+  const placeImages = async () => {
+    console.log(`HANDLE CLICKED!`)
+    const imageUrl2 = await getPhoto(name)
+    setImage(imageUrl2.data.photos[0].src.landscape)
+  }
+
+  useEffect(() => {
+    placeImages()
+  }, [name])
+
+  console.log(`THIS IS THE USERNAME`, username)
+  let user = username?.username
   return (
     <div className="country-card-container">
       <div className="country-card">
-        <h2>CREATED BY @USERNAME</h2>
+        <h2>CREATED BY {user}</h2>
       </div>
-      <div>
+      <div className="image-container">
+        <img src={image} alt="picture of the country" />
+      </div>
+      <div className="country-card-content">
         <h3>Country: {name}</h3>
       </div>
-      <div>
+      <div className="country-card-content">
         <p>Cities Visited: {city}</p>
       </div>
 
-      <div>
+      <div className="country-card-content">
         <p>Year Visted: {yearVisited}</p>
       </div>
-      <div>
+      <div className="country-card-content">
         <p>Comments: {comments}</p>
       </div>
-      <div>
+      <div className="country-card-content">
         <p>Rating: {rating}</p>
       </div>
     </div>

@@ -87,7 +87,7 @@ body {
   background: #c4c4c4;
 }
 
-.countries-card {
+.countries-card-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -22,6 +22,10 @@ body {
   justify-content: space-around;
 }
 
+// .country-card-content {
+//   display: flex;
+// }
+
 .navbar-items {
   margin: 10;
   padding: 20, 20, 20, 20;
@@ -74,7 +78,7 @@ body {
   background: #c4c4c4;
 }
 
-.countries-card {
+.countries-card-container {
   display: flex;
   position: relative;
   top: 200px;
