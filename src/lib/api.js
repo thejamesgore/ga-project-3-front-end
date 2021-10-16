@@ -46,7 +46,7 @@ export const getUser = async (id) => {
 export const getPhoto = async (country) => {
   const requestConfig = {
     headers: {
-      Authorization: `Bearer 563492ad6f917000010000015a60a09e9ab044169a84a9fc35231083`,
+      Authorization: `Bearer 563492ad6f9170000100000195fa474c5fc64843a5995717b34634d7`
     },
   }
 
