@@ -1,4 +1,5 @@
 body {
+  margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -126,12 +127,14 @@ body {
   -webkit-box-flex: display;
       -ms-flex: display;
           flex: display;
-  text-align: center;
-  height: 50px;
-  background: #c4c4c4;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  background: #c4c4c4;
 }
 
 .footer-title {
@@ -505,7 +508,7 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 50px 40px;
+  padding: 30px 40px;
   color: white;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;

@@ -93,12 +93,10 @@ body {
 
 .footer-container {
   flex: display;
-  text-align: center;
-
-  height: 50px;
-
-  background: #c4c4c4;
   justify-content: center;
+  align-items: center;
+  height: 60px;
+  background: #c4c4c4;
 }
 
 .footer-title {

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { getToken } from './auth'
-const baseUrl = 'http://localhost:8001'
+const baseUrl = 'https://thejamesgore-project3.herokuapp.com'
 
 // All methods for interacting with the api
 
@@ -43,9 +43,8 @@ export const getUser = async (id) => {
   return user
 }
 
-
 export const getPhoto = async (country) => {
-let pexelsApiKey = process.env.REACT_APP_PEXELS_API_KEY2
+  let pexelsApiKey = process.env.REACT_APP_PEXELS_API_KEY2
 
   const requestConfig = {
     headers: {

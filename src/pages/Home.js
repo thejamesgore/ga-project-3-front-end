@@ -8,9 +8,10 @@ const Home = () => {
       </div>
 
       <div className="hero-image-container">
+        {/* <div class="image2"></div> */}
         <img
           className="image2"
-          src="https://github.com/thejamesgore/ga-project-3-front-end/blob/development/images/iphonex1-min.png?raw=true"
+          src="https://user-images.githubusercontent.com/83005220/148244081-f1e61867-5dcc-4ae8-99ce-e9286506345d.png"
           alt="picture of an iphone"
         />
       </div>
@@ -43,9 +44,7 @@ const Home = () => {
 
       <footer className="footer">
         <div className="footer-container">
-          <p className="footer-title">
-            A SUPER COOL TRAVEL WEBSITE CREATED BY JAMES, OLLY AND EMMA
-          </p>
+          <p className="footer-title">© Travel App</p>
         </div>
       </footer>
     </section>
