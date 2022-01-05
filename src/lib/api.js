@@ -53,7 +53,7 @@ export const getPhoto = async (country) => {
   }
 
   const photo = await axios.get(
-    `https://corsanywhere.herokuapp.com/https://api.pexels.com/v1/search?query=${country}&per_page=1`,
+    `https://api.pexels.com/v1/search?query=${country}&per_page=1`,
     requestConfig
   )
   // console.log(`RESULTS FROM PEXELS API >>> `, photo)

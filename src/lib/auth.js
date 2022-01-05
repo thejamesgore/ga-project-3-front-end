@@ -2,14 +2,14 @@ import axios from 'axios'
 import { useHistory } from 'react-router'
 import { useEffect } from 'react'
 
-// Authorization
+baseURL = 'https://thejamesgore-project3.netlify.app/'
 
 export const registerUser = (formData) => {
-  return axios.post(`/api/register`, formData)
+  return axios.post(`${baseURL}/api/register`, formData)
 }
 
 export const loginUser = (formData) => {
-  return axios.post(`/api/login`, formData)
+  return axios.post(`${baseURL}/api/login`, formData)
 }
 
 export const LogoutUser = () => {
