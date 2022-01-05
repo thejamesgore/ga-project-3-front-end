@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useHistory } from 'react-router'
 import { useEffect } from 'react'
 
-baseURL = 'https://thejamesgore-project3.netlify.app'
+baseURL = 'https://thejamesgore-project3.herokuapp.com'
 
 export const registerUser = (formData) => {
   return axios.post(`${baseURL}/api/register`, formData)
