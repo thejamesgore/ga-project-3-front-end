@@ -6,32 +6,33 @@ const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,
   C20.1,15.8,20.2,15.8,20.2,15.7z`
 const SIZE = 20
 
-import Geocode from 'react-geocode'
-Geocode.setApiKey('AIzaSyBK6SzZbuxMjIHPxdoBk54ag5K23MLTss4')
-Geocode.setLanguage('en')
-Geocode.enableDebug()
+
+// let mapboxApiKey = 'pk.eyJ1IjoiamFtZXNnb3JlIiwiYSI6ImNreTFkY2FxcDBhMGgycGxhaWFiOGEyZGIifQ.S1gts5KKHsSSAVZdIx-ezA'
+let mapboxApiKey = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
+
+
+
 
 export default function Map(props) {
-  const [viewport, setViewport] = useState(
-    {
-      width: 700,
-      height: 500,
-      latitude: 46,
-      longitude: 17,
-      zoom: 1,
-    },
-    []
-  )
+  const [viewport, setViewport] = useState({
+    width: 700,
+    height: 500,
+    latitude: 46,
+    longitude: 17,
+    zoom: 1,
+  })
 
   return (
     <div>
       <ReactMapGL
         {...viewport}
-        // mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
-        mapboxApiAccessToken="pk.eyJ1IjoiamFtZXNnb3JlIiwiYSI6ImNrdW5qMWZnYTFucGgycG82MGVwaW83aXkifQ.ClJikErzkit5U1DNhCCwpw"
+
+        mapboxApiAccessToken={mapboxApiKey}
+         
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
       >
-        {/* MAP OVER THE MARKERS FUNCTION WITH CO-ORDINATES */}
+        
+
         {props.props?.map(({ lat, lng }) => (
           <Marker key={lat} latitude={lat} longitude={lng}>
             <svg

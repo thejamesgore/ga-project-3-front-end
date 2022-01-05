@@ -43,10 +43,13 @@ export const getUser = async (id) => {
   return user
 }
 
+
 export const getPhoto = async (country) => {
+let pexelsApiKey = process.env.REACT_APP_PEXELS_API_KEY2
+
   const requestConfig = {
     headers: {
-      Authorization: `Bearer 563492ad6f9170000100000195fa474c5fc64843a5995717b34634d7`
+      Authorization: `Bearer ${pexelsApiKey}`,
     },
   }
 
@@ -54,12 +57,6 @@ export const getPhoto = async (country) => {
     `https://api.pexels.com/v1/search?query=${country}&per_page=1`,
     requestConfig
   )
-  console.log(`RESULTS FROM PEXELS API >>> `, photo)
-  return photo
-}
-
-export const getHeroPhoto = async () => {
-  const photo = await axios.get(`https://source.unsplash.com/weekly?travel`)
-  console.log(photo)
+  // console.log(`RESULTS FROM PEXELS API >>> `, photo)
   return photo
 }

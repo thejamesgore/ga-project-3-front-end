@@ -6,7 +6,9 @@ import Map from '../components/Map.js'
 import Geocode from 'react-geocode'
 import ProrgressBar from '../components/ProgressBar'
 import MembersCard from '../components/MembersCard'
-Geocode.setApiKey('AIzaSyBK6SzZbuxMjIHPxdoBk54ag5K23MLTss4')
+
+let geocodeApiKey = process.env.REACT_APP_GOOGLE_API_KEY
+Geocode.setApiKey(geocodeApiKey)
 Geocode.setLanguage('en')
 Geocode.enableDebug()
 
@@ -33,7 +35,7 @@ export default function MembersHome() {
     Geocode.fromAddress(location).then(
       (response) => {
         geocodedCountries.push(response.results[0].geometry.location)
-        // console.log(`Data from function`, geocodedCountries)
+        console.log(`Data from function`, geocodedCountries)
         setCoordinates(geocodedCountries)
       },
       (error) => {
@@ -80,7 +82,7 @@ export default function MembersHome() {
         }))
         .filter((country) => country.createdBy == username)
       setCountryData(countryDataParsed)
-      console.log(`COUNTRYDATAAA >>>> `, countryDataParsed)
+      // console.log(`COUNTRYDATAAA >>>> `, countryDataParsed)
     }
   }, [userId, countries])
 
@@ -118,6 +120,7 @@ export default function MembersHome() {
                   imageUrl="https://whynotcuba.com/wp-content/uploads/2019/01/Havana.jpg"
                   comments={comments}
                   rating={rating}
+                  key={comments}
                 />
               </div>
             )
