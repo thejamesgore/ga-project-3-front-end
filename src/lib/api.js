@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { getToken } from './auth'
-const baseUrl = 'http://localhost:8001/api'
+const baseUrl = 'http://localhost:8001'
 
 // All methods for interacting with the api
 
 export const getAllCountries = async () => {
-  const data = await axios.get(`http://localhost:8001/api/countries`)
+  const data = await axios.get(`${baseUrl}/api/countries`)
 
   // console.log('this is data returning from the API', data.data)
 
@@ -14,7 +14,7 @@ export const getAllCountries = async () => {
 
 // getAllCountriesById
 export const getAllCountriesById = async () => {
-  const data = await axios.get(`http://localhost:8001/api/countries/${id}`)
+  const data = await axios.get(`${baseUrl}/api/countries/${id}`)
   console.log('This is our countries returning with Ids')
   return data
 }
@@ -24,7 +24,7 @@ export const createCountry = (formData) => {
     headers: { Authorization: `Bearer ${getToken()}` },
   }
 
-  return axios.post(`${baseUrl}/countries`, formData, requestConfig)
+  return axios.post(`${baseUrl}/api/countries`, formData, requestConfig)
 
   // console.log(`👀 This is the response form the CREATECOUNTRY api call`, data)
 }
@@ -38,7 +38,7 @@ export const deleteCountry = (id) => {
 }
 
 export const getUser = async (id) => {
-  const user = await axios.get(`http://localhost:8001/api/user/${id}`)
+  const user = await axios.get(`${baseUrl}/api/user/${id}`)
   // console.log(`This is the user data from getUser!`, user)
   return user
 }
