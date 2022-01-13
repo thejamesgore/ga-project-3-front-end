@@ -314,7 +314,7 @@ body {
   -webkit-box-shadow: 0 3px 3px -5px #f2709c, 0 2px 5px #f2709c;
           box-shadow: 0 3px 3px -5px #f2709c, 0 2px 5px #f2709c;
   border-radius: 20px;
-  color: #fff;
+  color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -458,6 +458,10 @@ p {
   min-height: 100vh;
 }
 
+.form-input-material input {
+  color: black !important;
+}
+
 .btn2 {
   padding: 8px 20px;
   border-radius: 0;
@@ -489,12 +493,12 @@ p {
 }
 
 .form-input-material {
-  --input-default-border-color: white;
-  --input-border-bottom-color: white;
+  --input-default-border-color: rgb(0, 0, 0);
+  --input-border-bottom-color: rgb(0, 0, 0);
 }
 
 .form-input-material input {
-  color: white;
+  color: black;
 }
 
 .login-form {

@@ -11,7 +11,7 @@ export default function Register() {
     },
   })
 
-  const [isRegistered, setIsRegistered] = useState(false)
+  const [isRegistered, setIsRegistered] = useState()
 
   const handleSubmit = async (event) => {
     event.preventDefault()

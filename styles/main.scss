@@ -223,7 +223,7 @@ body {
   background: linear-gradient(to left, #f2709c, #ff9472);
   box-shadow: 0 3px 3px -5px #f2709c, 0 2px 5px #f2709c;
   border-radius: 20px;
-  color: #fff;
+  color: rgb(0, 0, 0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -336,6 +336,10 @@ p {
   // background: #eceffc;
 }
 
+.form-input-material input {
+  color: black !important;
+}
+
 .btn2 {
   padding: 8px 20px;
   border-radius: 0;
@@ -370,11 +374,11 @@ p {
 }
 
 .form-input-material {
-  --input-default-border-color: white;
-  --input-border-bottom-color: white;
+  --input-default-border-color: rgb(0, 0, 0);
+  --input-border-bottom-color: rgb(0, 0, 0);
 
   input {
-    color: white;
+    color: rgb(0, 0, 0);
   }
 }
 

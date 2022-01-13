@@ -70,7 +70,7 @@ export default function Countries() {
       {/* countries ends */}
       <footer className="footer">
         <div className="footer-container">
-          <p>A BORING FOOTER</p>
+          <p>© TRAVEL APP</p>
         </div>
       </footer>
     </>
